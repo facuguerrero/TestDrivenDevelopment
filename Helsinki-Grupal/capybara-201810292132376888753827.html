@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+    <meta charset="utf-8">
+		<title>Job Vacancy Board - find the best jobs</title>
+		<link href="/assets/application.css" media="screen" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div class="container">
+      <div class="masthead">
+      	<div class="container">
+      	<div class="app-title">
+      	<h1>Job Vacancy Board</h1>
+      	</div>
+      	<div class="profile"> 
+							offerer@test.com
+				</div>
+				</div>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/job_offers/latest">Job offers</a></li>
+                
+                <li><a href="/job_offers/new">New Offer</a></li>
+                <li><a href="/job_offers/my">My Offers</a></li>
+
+								<li><a href="/logout">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+      </div>
+
+      <div class="container">
+			  <div>
+			    
+			  </div>
+
+      	<h1>My Job Offers</h1>
+<table class="table table-bordered">
+  <tr>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Experience (years)</th>
+    <th>Salary (ARS)</th>
+    <th>Description</th>
+    <th>Applicants</th>
+    <th>Is active</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+
+    <tr>
+      <td>
+        A Test Job Offer
+      </td>
+      <td>
+        a location
+      </td>
+      <td width="15%">
+        Not Specified
+      </td>
+      <td width="11%">
+        Not Specified
+      </td>
+      <td>
+        a nice job
+      </td>
+      <td width="10%">
+        0
+      </td>
+      <td>
+        true
+      </td>
+      <td>
+        0
+      </td>
+      <td>
+        <a class="btn btn-primary" href="/job_offers/edit/18">Edit</a>
+<form style="display:inline" method="post" action="/job_offers/destroy?offer_id=18" accept-charset="UTF-8"><input value="delete" name="_method" type="hidden" /><input value="b642bd8b3388c2389c64dead938ac1cc" name="authenticity_token" type="hidden" />          <button type='submit' title="Delete offer" rel='tooltip' class="btn btn-secondary">Delete</button>
+</form>        <a class="btn btn-primary" id="Complete" href="/job_offers/complete/18">Complete</a>
+      </td>
+    </tr>
+
+
+
+</table>
+
+      </div>
+      <!-- footer -->
+      <div class="footer">
+      	<hr/>
+        <p>Job Vacancy Board by NicoPaez | 2016</p>
+      </div>
+
+    </div> 
+
+		<script src="/assets/application.js" type="text/javascript"></script> 
+		</body>
+</html>

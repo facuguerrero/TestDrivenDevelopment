@@ -1,0 +1,33 @@
+image: ruby:2.2.0
+services:
+  - postgres:latest
+before_script:
+  - apt-get update -qq && apt-get install -y --no-install-recommends apt-utils
+  - apt-get install -y -qq postgresql postgresql-contrib libpq-dev cmake postgresql-server-dev-9.4
+  - ruby -v
+  - which ruby
+  - gem install bundler --no-ri --no-rdoc
+  - bundle install --path /cache
+variables:
+  POSTGRES_DB: jobvacancy
+  POSTGRES_USER: jobvacancy
+  POSTGRES_PASSWORD: jobvacancy
+
+stages:
+  - build
+  - staging
+  - production
+
+build:
+  stage: build
+  script:
+    - PADRINO_ENV=ci bundle exec rake
+
+staging:
+  stage: staging
+  script:
+  - gem install dpl
+  - dpl --provider=heroku --app=helsinki-jobvacancy --api-key=$HEROKU_STAGING_API_KEY
+  only:
+  - staging
+  

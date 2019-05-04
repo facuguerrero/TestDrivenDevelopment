@@ -1,0 +1,52 @@
+<!--
+<div>
+	search box
+</div>
+-->
+<table>
+	<tr>
+		<th>Title</th>
+		<th>Location</th>
+		<th>Experience (years)</th>
+		<th>Salary (ARS)</th>
+		<th>Description</th>
+		<th>Actions</th>
+	</tr>
+	<% @offers.each do | offer| %>
+
+	<tr>
+		<td>
+			<%= offer.title %>
+		</td>
+		<td>
+			<%= offer.location %>
+		</td>
+		<td width="15%">
+			<%=
+				if offer.experience_is_default?
+					'Not Specified'
+				else
+					offer.experience
+				end
+			%>
+		</td>
+		<td width="11%">
+			<%=
+				if offer.salary_is_default?
+					'Not Specified'
+				else
+					offer.salary
+				end
+			%>
+		</td>
+		<td>
+			<%= offer.description %>
+		</td>
+		<td>
+			<%= link_to 'Apply', url_for(:job_offers, :apply, :offer_id => offer.id) %>
+		</td>		
+	</tr>
+
+  <% end %>
+
+</table>

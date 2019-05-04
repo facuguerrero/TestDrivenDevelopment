@@ -1,0 +1,82 @@
+<h1>My Job Offers</h1>
+<table class="table table-bordered">
+  <tr>
+    <th>Title</th>
+    <th>Location</th>
+    <th>Experience (years)</th>
+    <th>Salary (ARS)</th>
+    <th>Description</th>
+    <th>Applicants</th>
+    <th>Status</th>
+    <th>Actions</th>
+  </tr>
+  <% @offers.each do |offer| %>
+
+	<tr>
+			<td>
+			<%= offer.title %>
+		</td>
+		<td>
+			<%= offer.location %>
+		</td>
+    <td width="15%">
+			<%=
+				if offer.experience_is_default?
+					'Not Specified'
+				else
+					offer.experience
+				end
+			%>
+		</td>
+    <td width="11%">
+			<%=
+				if offer.salary_is_default?
+					'Not Specified'
+				else
+					offer.salary
+				end
+			%>
+		</td>
+		<td>
+			<%= offer.description %>
+		</td>
+		<td width="10%">
+		  <%= offer.candidates_number.to_s %>
+		</td>
+		<td>
+			<% if offer.status == 0 %>
+				Active
+			<% end %>
+			<% if offer.status == 1 %>
+				Expired
+			<% end %>
+			<% if offer.status == 2 %>
+				Hired In
+			<% end %>
+			<% if offer.status == 3 %>
+				Hired Out
+			<% end %>
+			<% if offer.status == 4 %>
+				Closed
+			<% end %>
+		</td>
+		<td>
+			<%= link_to 'Edit', url_for(:job_offers, :edit, :offer_id => offer.id), :class => "btn btn-primary" %>
+			<%- form_tag url(:job_offers, :destroy, :offer_id => offer.id), :method => :delete, :style => 'display:inline' do %>
+				<button type='submit' title="Delete offer" rel='tooltip' class="btn btn-secondary">Delete</button>
+			<% end %>
+			<% if offer.status == 0 %>
+				<%= link_to 'Complete', url_for(:job_offers, :complete, :offer_id => offer.id), :class => "btn btn-primary", :id => 'Complete'%>
+			<% end %>
+			<% if not offer.is_active %>
+				<%- form_tag url(:job_offers, :activate, :offer_id => offer.id), :method => :put, :style => 'display:inline' do %>
+					<button type='submit' title="Activate offer" rel='tooltip' class="btn btn-secondary">Activate</button>
+				<% end %>
+			<% end %>
+		</td>
+	</tr>
+
+  <% end %>
+
+
+</table>
