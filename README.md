@@ -10,9 +10,9 @@ This project is made up of two main parts:
 
 ---
 ## Original Repos
-* [Individual] (https://gitlab.com/memo2-fiuba/facu_guerrero)
+* [Individual](https://gitlab.com/memo2-fiuba/facu_guerrero)
 
-* [Helsinki] (https://gitlab.com/Facuguerrero/helsinki2)
+* [Helsinki](https://gitlab.com/Facuguerrero/helsinki2)
 ---
 
 
